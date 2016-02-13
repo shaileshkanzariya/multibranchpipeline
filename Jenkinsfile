@@ -3,6 +3,9 @@
 stage 'Dev'
 node {
     checkout scm
+    
+    def mvnHome = tool 'M3'
+
     mvn 'clean package'
     dir('target') {stash name: 'war', includes: 'x.war'}
 }
